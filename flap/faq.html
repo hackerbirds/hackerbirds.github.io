@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flap</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1 class="text-highlight title">Flap your files<br> &emsp; from one device to another</h1>
+    <div>
+        <div class="sidebar">
+            <img id="logo" src="standing.png" />
+            <article class="sidebar-info">
+                <a href="index.html">Home</a>
+                <a href="https://github.com/hackerbirds/flap">Download</a>
+                <a href="https://github.com/hackerbirds/flap">GitHub page</a>
+            </article>
+        </div>
+        <article>
+            <h1 id="marquee" style="text-align: center;">Frequently Asked Questions</h1>
+            <h3>"HOW DO I USE THIS APP?"</h3>
+            <p>Each transfer starts with a single-use <i>ticket</i>. You need to give this ticket
+                to the intended recipient. This ticket contains
+                the information required to initiate one. It also contains the secret keys
+                used to encrypt your files, so make sure to not share this around. The crows
+                have no knowledge of the ticket's secrets, ensuring your privacy and security.
+            </p>
+            <h3>"IS THERE A WEB VERSION?"</h3>
+            <p>No. And we likely won't make one.</p>
+            <p>This is for two reasons: the first is that Flap is designed to be trustless.
+                With a web version, you would have to trust that the website
+                did not decide to give you malicious code. This undermines the security for everyone, even those
+                using the app. With apps, trust is increased because you can compile it yourself and have more control
+                over
+                what the app can do and with whom it can communicate.</p>
+            <p>The
+                second reason is that web browsers are not uniformly configured. They are different for everyone.
+                Privacy settings within browsers
+                or user extensions will usually mess with features that Flap would require (for good reasons!), and thus
+                would break our service. Using
+                an app prevents this problem and makes the service more reliable.</p>
+            <h3>"HOW DOES THE CAWMMUNATION WORK?"</h3>
+            <p>We use <a href="https://iroh.computer">iroh</a>, creating a peer-to-peer connection
+                between your device and the recipient's device. In more technical terms,
+                it is a library combining QUIC with NAT punching and relays. QUIC is a modern way of connecting
+                between devices, and allows us to make things fast, easy, and secure. NAT punching
+                allows devices to connect to each other without being bothered by things like firewalls.
+                Relays are optional servers that help the recipient find the information required to initiate
+                a connection with the sender. Relays don't contain information about the files or the transfers.
+            </p>
+            <h3>"HOW ARE MY FILES ENCRPYTED?"</h3>
+            <p>Files are encrypted using secret keys generated from the ticket. Thanks to the
+                design of tickets, no one but you and the recipient knows how to decrypt the file.
+                The encryption used is <code>XChaCha20-Poly1305</code>, which is fast, modern, well-known,
+                and verifies the integrity of the file as it gets transferred.
+            </p>
+        </article>
+    </div>
+</body>
+
+</html>
