@@ -50,10 +50,19 @@
                 a connection with the sender. Relays don't contain information about the files or the transfers.
             </p>
             <h3>"HOW ARE MY FILES ENCRPYTED?"</h3>
-            <p>Files are encrypted using secret keys obtained from the sender's ticket. Thanks to the
-                design of tickets, no one but you and the recipient can decrypt the file.
-                The encryption used is <code>XChaCha20-Poly1305</code>, which is fast, modern, well-known,
-                and verifies the integrity of the file as it gets transferred.
+            <p>Files are encrypted using secret keys generated using the ticket. Thanks to the design of tickets, no one
+                but you and the recipient knows how to decrypt the file. The <a href="https://noiseprotocol.org/">Noise
+                    protocol</a> is used as the foundation for encryption. The cryptography primitives we use are:
+
+            <ul>
+                <li><code>ChaCha20-Poly1305</code> for the AEAD, which is fast, modern, well-known, and verifies the
+                    integrity of the file as it gets transferred.</li>
+                <li><code>Curve25519</code> for the DH operations</li>
+                <li>Note: iroh uses <code>ed25519</code> keys for authenticating p2p endpoints, and we use a clever
+                    trick to convert these keys into <code>X25519</code> keys used for Noise.</li>
+                <li><code>Kyber1024</code> as the Hybrid KEM</li>
+                <li><code>Blake2s</code> as the hash function</li>
+            </ul>
             </p>
         </article>
     </div>
